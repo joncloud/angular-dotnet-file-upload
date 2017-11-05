@@ -1,0 +1,27 @@
+<h1>Attachments</h1>
+<div>
+    <label class="btn btn-primary">
+        Upload <input type="file" hidden (change)="upload($event)">
+    </label>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let attachment of attachments; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{attachment.name}}</td>
+            <td>
+                <div class="btn-group" role="group" aria-label="Attachment actions">
+                    <button type="button" class="btn btn-primary" (click)="download(attachment)">Download</button>
+                    <button type="button" class="btn btn-danger" (click)="delete(attachment)">Delete</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
